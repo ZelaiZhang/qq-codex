@@ -1,0 +1,9 @@
+:root {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  color: #16334b;
+  background: #9bd9ff;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; margin: 0; }
+.app-shell { min-height: 100vh; display: grid; grid-template-columns: 248px minmax(420px, 1fr) 380px; }
