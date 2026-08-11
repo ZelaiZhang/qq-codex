@@ -132,7 +132,7 @@ Run: `git add src/domain tests/unit/sessionReducer.test.ts && git commit -m "fea
 
 - [ ] **Step 1: Generate and inspect App Server declarations**
 
-Run the package-local Codex executable with `app-server generate-ts --out-dir src/main/codex/generated`, using the exact executable path exported by `@openai/codex`.
+Run the package-local Codex executable with `app-server generate-ts --out src/main/codex/generated --experimental`, using the exact executable path exported by `@openai/codex`.
 
 Expected: TypeScript declarations for initialization, threads, turns, approvals, and notifications are created. Use these declarations as the protocol source of truth.
 
