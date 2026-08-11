@@ -26,7 +26,33 @@
 }
 .brand-mark { font-size: 18px; filter: drop-shadow(0 1px 0 white); }
 .title-task { overflow: hidden; color: rgb(255 255 255 / 76%); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
-.window-controls { -webkit-app-region: no-drag; display: flex; align-self: stretch; margin-left: auto; }
+.theme-switch {
+  -webkit-app-region: no-drag;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 2px;
+  margin-left: auto;
+  padding: 2px;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 5px;
+  background: rgb(0 53 92 / 20%);
+}
+.theme-switch button {
+  min-width: 38px;
+  height: 22px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 3px;
+  color: rgb(255 255 255 / 74%);
+  background: transparent;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease, transform 100ms ease;
+}
+.theme-switch button:hover { color: white; background: rgb(255 255 255 / 13%); }
+.theme-switch button[aria-pressed="true"] { color: #064b7f; background: white; box-shadow: 0 1px 2px rgb(0 45 80 / 24%); font-weight: 700; }
+.theme-switch button:active { transform: translateY(1px); }
+.window-controls { -webkit-app-region: no-drag; display: flex; align-self: stretch; margin-left: 4px; }
 .window-controls button { width: 42px; border: 0; color: white; background: transparent; font-size: 15px; }
 .window-controls button:hover { background: rgb(255 255 255 / 20%); }
 .window-controls .close:hover { background: #d94747; }
