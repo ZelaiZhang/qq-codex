@@ -40,6 +40,7 @@ export function App({ api = window.qqCodex ?? browserFallbackApi }: { api?: Desk
           onSelectTask={(task) => void client.selectTask(task)}
           onCreateTask={() => void client.createTask()}
           onOpenProject={() => void client.createTask()}
+          onRenameTask={client.renameTask}
         />
         <Conversation
           task={client.selectedTask}

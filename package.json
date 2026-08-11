@@ -10,6 +10,7 @@
     "build": "tsc --noEmit && vite build",
     "test": "vitest",
     "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "package": "npm run build && electron-builder --win"
@@ -47,8 +48,15 @@
   "build": {
     "appId": "com.local.qqcodex",
     "productName": "QQ Codex",
+    "asar": false,
     "directories": { "output": "release" },
-    "files": ["dist/**", "dist-electron/**", "package.json"],
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "package.json",
+      "node_modules/@openai/codex/**",
+      "node_modules/@openai/codex-win32-x64/**"
+    ],
     "win": { "target": ["dir", "nsis"] }
   }
 }

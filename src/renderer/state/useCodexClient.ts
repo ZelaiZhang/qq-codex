@@ -98,6 +98,15 @@ export function useCodexClient(api: DesktopApi) {
     }
   }, [api, reportError, selectedTaskId]);
 
+  const renameTask = useCallback(async (taskId: string, title: string) => {
+    try {
+      await api.renameTask(taskId, title);
+      setTasks((current) => current.map((task) => task.id === taskId ? { ...task, title } : task));
+    } catch (error) {
+      reportError(error);
+    }
+  }, [api, reportError]);
+
   const stopTurn = useCallback(async () => {
     if (!selectedTaskId) return;
     try {
@@ -130,6 +139,7 @@ export function useCodexClient(api: DesktopApi) {
     selectWorkspace,
     selectTask,
     createTask,
+    renameTask,
     sendMessage,
     stopTurn,
     respondToApproval,

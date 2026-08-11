@@ -24,7 +24,7 @@ export function Composer({ disabled, running, onSend, onStop }: Props) {
   return (
     <section className="composer">
       <div className="composer-tools" aria-label="消息工具栏">
-        <button title="添加文件">📎</button><button title="提及文件">@</button><button title="截图">▣</button>
+        <button disabled title="首版暂未开放添加文件">📎</button><button disabled title="首版暂未开放提及文件">@</button><button disabled title="首版暂未开放截图">▣</button>
         <span>Enter 发送 · Shift+Enter 换行</span>
       </div>
       <textarea

@@ -19,7 +19,7 @@ export function Conversation(props: Props) {
       <header className="conversation-header">
         <div className="chat-avatar">C</div>
         <div><strong>{props.task?.title ?? "欢迎使用 QQ Codex"}</strong><span>{props.task ? "Codex · 工作区模式" : "选择左侧任务开始办公"}</span></div>
-        <div className="header-actions"><button title="搜索消息">⌕</button><button title="更多">•••</button></div>
+        <div className="header-actions"><button disabled title="首版暂未开放消息搜索">⌕</button><button disabled title="首版暂未开放更多菜单">•••</button></div>
       </header>
       <section className="message-list" aria-live="polite" aria-atomic="false">
         {!props.task && (
