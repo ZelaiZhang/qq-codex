@@ -1,8 +1,8 @@
 {
   "name": "qq-codex",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "A QQ 2009-inspired desktop client for Codex",
+  "description": "A dual-theme QQ and WeChat-inspired desktop client for Codex",
   "type": "module",
   "main": "dist-electron/main.js",
   "scripts": {

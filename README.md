@@ -1,8 +1,10 @@
 # QQ Codex
 
-一个采用 QQ 2009 经典蓝色视觉语言的 Windows Codex 桌面客户端。它不是静态界面演示，底层直接启动官方 `@openai/codex` 包提供的 Codex App Server。
+一个可在 QQ 2009 经典蓝色与现代微信风格之间切换的 Windows Codex 桌面客户端。它不是静态界面演示，底层直接启动官方 `@openai/codex` 包提供的 Codex App Server。
 
 ![QQ Codex 界面预览](preview.png)
+
+![微信主题界面预览](preview-wechat.png)
 
 ## 当前功能
 
@@ -15,6 +17,8 @@
 - 浏览项目文件树
 - 保存最近工作区和任务索引
 - QQ 2009 风格三栏窗口、聊天气泡和状态栏
+- 现代微信风格的深色任务区、灰白聊天区和微信绿消息气泡
+- 在运行中切换 QQ / 微信主题，重启后保留上次选择
 
 ## 运行
 
