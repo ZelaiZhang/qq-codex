@@ -1,9 +1,12 @@
-:root {
-  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
-  color: #16334b;
-  background: #9bd9ff;
-}
+@import "./tokens.css";
+@import "./shell.css";
 
 * { box-sizing: border-box; }
-html, body, #root { min-height: 100%; margin: 0; }
-.app-shell { min-height: 100vh; display: grid; grid-template-columns: 248px minmax(420px, 1fr) 380px; }
+html, body, #root { width: 100%; min-width: 0; min-height: 100%; margin: 0; }
+body { overflow: hidden; background: var(--qq-blue-700); color: var(--ink); }
+button, input, textarea { font: inherit; }
+button { color: inherit; }
+button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid #ffb400;
+  outline-offset: 1px;
+}

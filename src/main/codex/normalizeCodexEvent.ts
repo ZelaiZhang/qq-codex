@@ -80,6 +80,7 @@ export function normalizeCodexMessage(message: Message): SessionEvent[] {
     case "item/started":
     case "item/completed":
     case "serverRequest/resolved":
+    case "remoteControl/status/changed":
       return [];
     default:
       return method ? [{ type: "system.notice", message: `Codex 事件：${method}` }] : [];

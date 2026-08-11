@@ -92,4 +92,11 @@ describe("normalizeCodexMessage", () => {
       { type: "system.notice", message: "Codex 事件：future/event" },
     ]);
   });
+
+  it("ignores known background status notifications", () => {
+    expect(normalizeCodexMessage({
+      method: "remoteControl/status/changed",
+      params: { enabled: false },
+    })).toEqual([]);
+  });
 });

@@ -1,0 +1,23 @@
+:root {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  font-size: 13px;
+  color-scheme: light;
+  --qq-blue-900: #07508f;
+  --qq-blue-800: #0867ae;
+  --qq-blue-700: #0d7dc8;
+  --qq-blue-600: #2199df;
+  --qq-blue-400: #73c8f6;
+  --qq-blue-200: #c8ecff;
+  --qq-blue-100: #e9f8ff;
+  --qq-blue-050: #f5fbff;
+  --panel: #f7fcff;
+  --line: #9ecde7;
+  --line-dark: #5aa2cc;
+  --ink: #16364d;
+  --muted: #66889d;
+  --green: #55b84a;
+  --orange: #ff9d19;
+  --danger: #d84343;
+  --shadow: 0 14px 40px rgb(0 55 98 / 30%);
+  --radius: 6px;
+}
