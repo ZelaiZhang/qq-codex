@@ -4,6 +4,7 @@ import { Conversation } from "./features/conversation/Conversation";
 import { Inspector } from "./features/inspector/Inspector";
 import { TitleBar } from "./features/title-bar/TitleBar";
 import { useCodexClient } from "./state/useCodexClient";
+import { useThemePreference } from "./theme/useThemePreference";
 
 const unavailable = async () => { throw new Error("请从 QQ Codex 桌面应用启动"); };
 const browserFallbackApi: DesktopApi = {
@@ -25,13 +26,15 @@ const browserFallbackApi: DesktopApi = {
 
 export function App({ api = window.qqCodex ?? browserFallbackApi }: { api?: DesktopApi }) {
   const client = useCodexClient(api);
+  const [theme, setTheme] = useThemePreference();
   const approvals = Object.values(client.session.approvals);
 
   return (
-    <div className="app-frame">
-      <TitleBar api={api} />
+    <div className="app-frame" data-theme={theme}>
+      <TitleBar api={api} theme={theme} onThemeChange={setTheme} />
       <div className="app-shell">
         <BuddyList
+          theme={theme}
           workspaces={client.workspaces}
           tasks={client.tasks}
           selectedWorkspaceId={client.selectedWorkspace?.id ?? null}

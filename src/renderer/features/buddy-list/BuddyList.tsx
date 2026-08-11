@@ -1,7 +1,9 @@
 import type { TaskSummary, Workspace } from "../../../domain/types";
 import { useState, type KeyboardEvent } from "react";
+import type { ThemeName } from "../../theme/themePreference";
 
 interface Props {
+  theme?: ThemeName;
   workspaces: Workspace[];
   tasks: TaskSummary[];
   selectedWorkspaceId: string | null;
@@ -14,6 +16,7 @@ interface Props {
 }
 
 export function BuddyList(props: Props) {
+  const isWeChat = props.theme === "wechat";
   const [query, setQuery] = useState("");
   const [editingTaskId, setEditingTaskId] = useState<string | null>(null);
   const [editingTitle, setEditingTitle] = useState("");
@@ -39,10 +42,10 @@ export function BuddyList(props: Props) {
   return (
     <nav className="buddy-list" aria-label="项目与任务">
       <section className="profile-card">
-        <div className="penguin-avatar" aria-hidden="true">🐧</div>
+        <div className="penguin-avatar" aria-hidden="true">{isWeChat ? "微" : "🐧"}</div>
         <div className="profile-copy">
-          <strong>QQ Codex</strong>
-          <span><i className="online-dot" /> 在线办公中</span>
+          <strong>{isWeChat ? "微信工作台" : "QQ Codex"}</strong>
+          <span><i className="online-dot" /> {isWeChat ? "与 Codex 保持连接" : "在线办公中"}</span>
         </div>
       </section>
       <label className="buddy-search">

@@ -1,6 +1,6 @@
-import { act, render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { App } from "../../src/renderer/App";
 import type { DesktopApi, SessionEvent } from "../../src/domain/types";
 
@@ -46,6 +46,16 @@ function createApi() {
 }
 
 describe("QQ Codex shell", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+    delete document.documentElement.dataset.theme;
+  });
+
+  afterEach(() => {
+    window.localStorage.clear();
+    delete document.documentElement.dataset.theme;
+  });
+
   it("exposes the three primary work areas", async () => {
     const { api } = createApi();
     render(<App api={api} />);
@@ -98,5 +108,27 @@ describe("QQ Codex shell", () => {
     await new Promise((resolve) => setTimeout(resolve, 0));
 
     expect(api.listWorkspaces).not.toHaveBeenCalled();
+  });
+
+  it("switches to the WeChat theme without replacing the active workbench", async () => {
+    const user = userEvent.setup();
+    const { api } = createApi();
+    render(<App api={api} />);
+    await screen.findByRole("button", { name: /检查构建/ });
+
+    expect(document.documentElement).toHaveAttribute("data-theme", "qq");
+    const titleBar = document.querySelector(".title-bar");
+    expect(titleBar).not.toBeNull();
+    expect(within(titleBar as HTMLElement).getByText("QQ Codex")).toBeVisible();
+
+    await user.click(screen.getByRole("button", { name: "微信主题" }));
+
+    expect(document.documentElement).toHaveAttribute("data-theme", "wechat");
+    expect(document.querySelector(".app-frame")).toHaveAttribute("data-theme", "wechat");
+    expect(screen.getByRole("button", { name: "微信主题" })).toHaveAttribute("aria-pressed", "true");
+    expect(within(titleBar as HTMLElement).getByText("微信 Codex")).toBeVisible();
+    expect(screen.getByText("微信工作台")).toBeVisible();
+    expect(screen.getByRole("button", { name: /检查构建/ })).toBeVisible();
+    expect(window.localStorage.getItem("qq-codex.theme")).toBe("wechat");
   });
 });
