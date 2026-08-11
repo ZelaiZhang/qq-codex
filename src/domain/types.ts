@@ -76,6 +76,7 @@ export interface WorkspaceEntry {
 export interface DesktopApi {
   chooseWorkspace(): Promise<string | null>;
   listWorkspaces(): Promise<Workspace[]>;
+  listTasks(workspaceId?: string): Promise<TaskSummary[]>;
   createTask(cwd: string): Promise<TaskSummary>;
   resumeTask(taskId: string): Promise<void>;
   renameTask(taskId: string, title: string): Promise<void>;
@@ -84,4 +85,7 @@ export interface DesktopApi {
   respondToApproval(requestId: string | number, decision: "accept" | "decline"): Promise<void>;
   listWorkspaceFiles(cwd: string): Promise<WorkspaceEntry[]>;
   onSessionEvent(listener: (event: SessionEvent) => void): () => void;
+  minimizeWindow(): Promise<void>;
+  toggleMaximizeWindow(): Promise<void>;
+  closeWindow(): Promise<void>;
 }

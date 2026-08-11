@@ -1,0 +1,16 @@
+export const channels = {
+  chooseWorkspace: "workspace:choose",
+  listWorkspaces: "workspace:list",
+  listWorkspaceFiles: "workspace:files",
+  listTasks: "task:list",
+  createTask: "task:create",
+  resumeTask: "task:resume",
+  renameTask: "task:rename",
+  sendMessage: "message:send",
+  stopTurn: "turn:stop",
+  respondToApproval: "approval:respond",
+  sessionEvent: "session:event",
+  minimizeWindow: "window:minimize",
+  toggleMaximizeWindow: "window:toggle-maximize",
+  closeWindow: "window:close",
+} as const;
